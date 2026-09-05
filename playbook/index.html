@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Playbook Nous Free — smoke + cotas · PIX R$50</title>
+  <style>
+    :root { --bg:#0b1020; --card:#161b2e; --text:#eef2ff; --muted:#9aa3c7; --accent:#8b7cf7; --ok:#6ee7b7; }
+    body{margin:0;font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);padding:2rem 1rem;line-height:1.45}
+    main{max-width:720px;margin:0 auto}
+    .card{background:var(--card);border-radius:14px;padding:1.25rem;margin:1rem 0}
+    a{color:#b7adff} .price{color:var(--accent);font-size:1.35rem;font-weight:700}
+    ol{padding-left:1.2rem} code{background:#0a0e1a;padding:.1rem .35rem;border-radius:4px;font-size:.9em}
+    img{max-width:220px;display:block;margin:1rem auto;background:#fff;border-radius:8px}
+    textarea{width:100%;font:12px/1.3 ui-monospace,monospace;background:#0a0e1a;color:#c8d0f0;border:1px solid #2a3350;border-radius:8px;padding:.6rem;box-sizing:border-box}
+    button{background:var(--accent);color:#fff;border:0;border-radius:10px;padding:.7rem 1rem;font-weight:700;cursor:pointer;width:100%;margin-top:.5rem}
+    .muted{color:var(--muted);font-size:.9rem} .tip{border-left:3px solid var(--ok);padding-left:.75rem}
+    table{width:100%;border-collapse:collapse;font-size:.92rem} td,th{border-bottom:1px solid #2a3350;padding:.4rem;text-align:left}
+  </style>
+</head>
+<body>
+<main>
+  <h1>Playbook Nous Free Tier</h1>
+  <p class="muted">Smoke HTTP + cotas reais · free only · tip PIX embutido</p>
+
+  <div class="card">
+    <div class="price">R$ 50 · PIX LUIZ</div>
+    <p>Playbook prático (10 min) + amostra live. Pack ampliado R$100 sob pedido.</p>
+    <p class="tip muted"><strong>Tip:</strong> pague com o QR/copia-cola <em>tag54=50.00</em> abaixo (<code>qr_2</code>). Índice de ficheiro não manda — o valor é o EMV.</p>
+    <p><a href="PLAYBOOK.md"><strong>Abrir PLAYBOOK.md</strong></a> ·
+       <a href="../ebook/nous-free-smoke-cotas.pdf">Ebook PDF</a> ·
+       <a href="../">Landing</a></p>
+  </div>
+
+  <div class="card">
+    <h2>Passos</h2>
+    <ol>
+      <li>Portal Free only — <a href="https://portal.nousresearch.com">portal.nousresearch.com</a></li>
+      <li><code>GET /v1/models</code> → IDs <code>:free</code> (0 Hermes no catálogo vivo)</li>
+      <li><code>POST /v1/chat/completions</code> com <code>meituan/longcat-2.0:free</code></li>
+      <li>Guardar HTTP + usage + <code>x-ratelimit-*</code></li>
+      <li>Comparar ao teto docs <strong>50 RPM / 500k TPM</strong></li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h2>Amostra live (sanitized)</h2>
+    <table>
+      <tr><th>Model</th><td><code>meituan/longcat-2.0:free</code></td></tr>
+      <tr><th>HTTP</th><td>200</td></tr>
+      <tr><th>usage</th><td>23+11=34 tokens</td></tr>
+      <tr><th>Remaining</th><td>49/50 req · 499987/500000 tok</td></tr>
+    </table>
+    <p class="muted">Fonte: smoke-response + near-limit 2026-09-05 · sem secrets</p>
+  </div>
+
+  <div class="card">
+    <h2>PIX R$50 (tip checkout)</h2>
+    <img src="../pix/qr-r50.png" alt="PIX R$50" width="220" height="220" />
+    <textarea id="pix" readonly rows="4">00020126330014br.gov.bcb.pix011108030362994520400005303986540550.005802BR5920LUIZ GUSTAVO CORREIA6009SAO PAULO62080504Pack63044E58</textarea>
+    <button type="button" onclick="navigator.clipboard.writeText(document.getElementById('pix').value).then(()=>alert('PIX copiado'))">Copiar PIX</button>
+    <p class="muted">tag54=50.00 · CRC-ok · recebedor LUIZ</p>
+  </div>
+
+  <p class="muted">
+    Gist <a href="https://gist.github.com/Ziuluiziul/296fa307f82eb950e49cb54af08301eb">oferta</a> ·
+    Space <a href="https://huggingface.co/spaces/Ziulluizziul/nous-free-smoke-r50">HF</a> ·
+    Hub <a href="https://ziuluiziul.github.io/round1-cumulunimbus/">multi-IA</a>
+  </p>
+</main>
+</body>
+</html>
