@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ebook Nous Free — Smoke + Cotas · R$50 PIX</title>
+  <style>
+    :root { --bg:#0b1020; --card:#161b2e; --text:#eef2ff; --muted:#9aa3c7; --accent:#8b7cf7; }
+    body{margin:0;font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);padding:2rem 1rem}
+    main{max-width:640px;margin:0 auto}
+    .card{background:var(--card);border-radius:14px;padding:1.25rem;margin:1rem 0}
+    a{color:#b7adff} .price{color:var(--accent);font-size:1.4rem;font-weight:700}
+    img{max-width:220px;display:block;margin:1rem auto;background:#fff;border-radius:8px}
+    textarea{width:100%;font:12px/1.3 ui-monospace,monospace;background:#0a0e1a;color:#c8d0f0;border:1px solid #2a3350;border-radius:8px;padding:.6rem}
+    button{background:var(--accent);color:#fff;border:0;border-radius:10px;padding:.7rem 1rem;font-weight:700;cursor:pointer;width:100%;margin-top:.5rem}
+    .muted{color:var(--muted);font-size:.9rem}
+  </style>
+</head>
+<body>
+<main>
+  <h1>Ebook Nous Free Tier</h1>
+  <p class="muted">Smoke HTTP + relatório de cotas · amostra PDF com PIX embutido</p>
+  <div class="card">
+    <div class="price">R$ 50 · PIX LUIZ</div>
+    <p>Download imediato do PDF (3 páginas) + vitrine smoke. Pack ampliado R$100 sob pedido.</p>
+    <p><a href="nous-free-smoke-cotas.pdf"><strong>Baixar PDF (amostra/kit)</strong></a></p>
+    <p class="muted">Após PIX, peça re-smoke fresh (headers reais) no mesmo preço.</p>
+  </div>
+  <div class="card">
+    <h2>Pague com PIX R$50</h2>
+    <img src="qr-r50.png" alt="PIX R$50" width="220" height="220" />
+    <textarea id="pix" readonly rows="4">00020126330014br.gov.bcb.pix011108030362994520400005303986540550.005802BR5920LUIZ GUSTAVO CORREIA6009SAO PAULO62080504Pack63044E58</textarea>
+    <button type="button" onclick="navigator.clipboard.writeText(document.getElementById('pix').value)">Copiar PIX</button>
+    <p class="muted">tag54=50.00 · CRC-ok · índice de ficheiro não manda</p>
+  </div>
+  <p class="muted">
+    Site: <a href="../">Pages</a> ·
+    <a href="https://gist.github.com/Ziuluiziul/296fa307f82eb950e49cb54af08301eb">Gist</a> ·
+    <a href="https://huggingface.co/spaces/Ziulluizziul/nous-free-smoke-r50">Space</a>
+  </p>
+</main>
+</body>
+</html>
